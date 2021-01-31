@@ -1,0 +1,31 @@
+version: '3'
+services:
+  db:
+    container_name: tm-mysql
+    image: mysql:5.7
+    volumes:
+    - $PWD/data:/var/lib/mysql
+    environment:
+      MYSQL_DATABASE: 'task_manager'
+      MYSQL_USER: 'root'
+      MYSQL_PASSWORD: '12345678'
+      MYSQL_ROOT_PASSWORD: '12345678'
+    ports:
+    - '3306:3306'
+    expose:
+    - '3306'
+    networks:
+      - my_net
+  microservice:
+    container_name: tm
+    depends_on:
+      - db
+    image: 'luisin/taskmanagerservice'
+    ports:
+      - "8080:8080"
+    networks:
+      - my_net
+    expose:
+    - '8080'
+networks:
+  my_net:
