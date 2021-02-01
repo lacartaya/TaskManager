@@ -59,7 +59,7 @@ $ sudo chmod +x /usr/local/bin/docker-compose
 $ docker-compose --version
 ```
 
-Cualquier inconveniente consultar la documentación https://docs.docker.com/docker-for-mac/install/
+Cualquier inconveniente consultar la documentación https://docs.docker.com/compose/install/
 
 ### Run project
 
